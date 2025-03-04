@@ -1,7 +1,13 @@
 {
     "name": "Devcontainer",
     "image": "ghcr.io/codesandbox/devcontainers/typescript-node:latest",
-    "updateContentCommand": "yarn install",
-    "postAttachCommand": "yarn start",
-    "forwardPorts": [3000]
+    "postCreateCommand": "yarn install && yarn start",
+    "forwardPorts": [3000],
+    "portsAttributes": {
+        "8888": {
+          "label": "Nextjs",
+          "requireLocalPort": true,
+          "onAutoForward": "ignore"
+        }
+      }
 }
